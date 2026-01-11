@@ -594,19 +594,35 @@ a.btn--radius {
 
 .footer {
   background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
+  color: #fff;  
 }
 
-.footer-title {
+.footer-0 {
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-0 a {
+  display: flex;           /* imgのベースライン問題を根本解決 */
+  align-items: center;
 }
 
 .footer-logo {
-  width: 10%;
+  width: 50px;   /* 例：固定幅 */
+  height: auto;
+  display: block;
+}
+
+.footer-title {
+  font-size: 20px;
+}
+
+.footer-0 p {
+  line-height: 1;          /* bodyの line-height:1 を明示的に継承 */
 }
 
 .footer-nav {
-  display: flex;
   font-size: 1rem;
   padding-left: 20px;
   padding-right: 20px;
@@ -615,7 +631,27 @@ a.btn--radius {
 .footer-site-menu ul li {
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.footer-1 {
   text-align: center;
+}
+
+.footer-navtext {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 20px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.footer-navtext:hover {
+  transform: scale(1.15);
+  transition: transform 0.3s ease;
+}
+
+.copyright {
+  margin-top: 5px;
 }
 
 @media screen and (max-width: 768px) {
