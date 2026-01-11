@@ -26,7 +26,7 @@
                     <br>第80回修猷大文化祭HP
                 </p>
             </div>
-           <button class="toggle-menu-button">
+            <button class="toggle-menu-button">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -50,7 +50,8 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <div class="another-page-button">
             <a href="index.html">
-                <div class="btn btn--orange btn--radius">メインページはこちらから</div>
+                <div class="btn btn--orange btn--radius">メインページは<br>
+                    こちらから</div>
             </a>
         </div>
         <div class="section-gradient-top1"></div>
@@ -383,24 +384,28 @@
     </main>
 </body>
 <footer class="footer">
-    <a class="footer-logo" href="./index.html">
-        <img src="./images/logo-kari.jpg">
-        <!--あとでロゴの写真を正式なものに差し替えておく-->
-    </a>
-    <nav class="footer-site-menu">
-        <p>福岡県立修猷館高等学校大文化祭HP</p>
-        <ul class="footer-nav">
-            <li class="navtext"><a href="index.html#top">トップ</a></li>
-            <li class="navtext"><a href="index.html#classkikaku">クラス企画</a></li>
-            <li class="navtext"><a href="index.html#cultureclub-kikaku">文化部展示</a></li>
-            <li class="navtext"><a href="#timeschedule">タイムスケジュール</a></li>
-            <li class="navtext"><a href="#stage">ステージ有志</a></li>
-            <li class="navtext"><a href="index.html#map">マップ</a></li>
-            <!--一旦すべて書き終わったらliの中の要素にリンクを貼る-->
-            <!--フッターをすべて書き終わったらサブページにコピペする。正直な話ヘッダーもこれでいいかもしれない。ミスを減らせると思う-->
-        </ul>
-    </nav>
-    <p class="copyright"><small>&copy;第80回修猷大文化祭運営委員会広報部署</small></p>
+    <div class="footer-0">
+        <a href="./index.html">
+            <img class="footer-logo" src="./images/logo-kari.jpg">
+            <!--あとでロゴの写真を正式なものに差し替えておく-->
+        </a>
+        <p class="footer-title">福岡県立修猷館高等学校大文化祭HP</p>
+    </div>
+    <div class="footer-1">
+        <nav class="footer-site-menu">
+            <ul class="footer-nav">
+                <li class="footer-navtext"><a href="index.html#top">トップ</a></li>
+                <li class="footer-navtext"><a href="index.html#classkikaku">クラス企画</a></li>
+                <li class="footer-navtext"><a href="index.html#cultureclub-kikaku">文化部展示</a></li>
+                <li class="footer-navtext"><a href="#timeschedule">タイムスケジュール</a></li>
+                <li class="footer-navtext"><a href="#stage">ステージ有志</a></li>
+                <li class="footer-navtext"><a href="index.html#map">マップ</a></li>
+                <!--一旦すべて書き終わったらliの中の要素にリンクを貼る-->
+                <!--フッターをすべて書き終わったらサブページにコピペする。正直な話ヘッダーもこれでいいかもしれない。ミスを減らせると思う-->
+            </ul>
+        </nav>
+        <p class="copyright"><small>&copy;第80回修猷大文化祭運営委員会広報部署</small></p>
+    </div>
 </footer>
 
 </html>
@@ -546,15 +551,15 @@
     });
 
     window.addEventListener('load', function () {
-    var $button = document.querySelector('.toggle-menu-button');
-    var $menu = document.querySelector('.header-site-menu');
-    $button.addEventListener('click', function () {
-        if ($menu.classList.contains('is-show')) {
-            $menu.classList.remove('is-show');
-        }
-        else {
-            $menu.classList.add('is-show');
-        }
+        var $button = document.querySelector('.toggle-menu-button');
+        var $menu = document.querySelector('.header-site-menu');
+        $button.addEventListener('click', function () {
+            if ($menu.classList.contains('is-show')) {
+                $menu.classList.remove('is-show');
+            }
+            else {
+                $menu.classList.add('is-show');
+            }
+        });
     });
-});
 </script>
