@@ -9,8 +9,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="robots" content="noindex, follow">
     <!--公開するときにはこのメタタグを消す-->
-    <script src="./js/toggle-menu.js"></script>
-    <!--ハンバーガーメニューのjavaspriptファイルへのリンクをあとで貼る-->
     <link href="./css/reset.css" rel="stylesheet">
     <link href="./css/common.css" rel="stylesheet">
     <link href="./css/class.css" rel="stylesheet">
@@ -688,4 +686,16 @@
 
     });
 
+window.addEventListener('load', function () {
+    var $button = document.querySelector('.toggle-menu-button');
+    var $menu = document.querySelector('.header-site-menu');
+    $button.addEventListener('click', function () {
+        if ($menu.classList.contains('is-show')) {
+            $menu.classList.remove('is-show');
+        }
+        else {
+            $menu.classList.add('is-show');
+        }
+    });
+});
 </script>
