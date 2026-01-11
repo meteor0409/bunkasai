@@ -572,77 +572,65 @@
 
 </html>
 <script>
-    const container = document.querySelector('.Container');
-    const boxContainer = document.querySelector('.Box-Container');
-    const leftArrow = document.querySelector('.Arrow.left');
-    const rightArrow = document.querySelector('.Arrow.right');
-    const scrollAmount = 300;
+const boxContainer = document.querySelector('.Box-Container');
+const leftArrow = document.querySelector('.Arrow.left');
+const rightArrow = document.querySelector('.Arrow.right');
 
-    leftArrow.addEventListener('click', () => {
-        const containerWidth = container.offsetWidth;
-        const maxScrollAmount = boxContainer.offsetWidth - containerWidth;
-        const currentScrollAmount = Math.abs(parseInt(boxContainer.style.transform.split('(')[1])) || 0;
-        const newScrollAmount = Math.max(currentScrollAmount - scrollAmount, 0);
-        boxContainer.style.transform = `translateX(-${newScrollAmount}px)`;
-        updateArrowVisibility(newScrollAmount, maxScrollAmount);
-    });
+const scrollAmount = 310; // Box300 + gap10
 
-    rightArrow.addEventListener('click', () => {
-        const containerWidth = container.offsetWidth;
-        const maxScrollAmount = boxContainer.offsetWidth - containerWidth;
-        const currentScrollAmount = Math.abs(parseInt(boxContainer.style.transform.split('(')[1])) || 0;
-        const newScrollAmount = Math.min(currentScrollAmount + scrollAmount, maxScrollAmount);
-        boxContainer.style.transform = `translateX(-${newScrollAmount}px)`;
-        updateArrowVisibility(newScrollAmount, maxScrollAmount);
-    });
+leftArrow.addEventListener('click', () => {
+  boxContainer.scrollBy({
+    left: -scrollAmount,
+    behavior: 'smooth'
+  });
+});
 
-    const container2 = document.querySelector('.Container2');
-    const boxContainer2 = document.querySelector('.Box-Container2');
-    const leftArrow2 = document.querySelector('.Arrow.left2');
-    const rightArrow2 = document.querySelector('.Arrow.right2');
-    const scrollAmount2 = 300;
+rightArrow.addEventListener('click', () => {
+  boxContainer.scrollBy({
+    left: scrollAmount,
+    behavior: 'smooth'
+  });
+});
 
-    leftArrow2.addEventListener('click', () => {
-        const containerWidth = container2.offsetWidth;
-        const maxScrollAmount = boxContainer2.offsetWidth - containerWidth;
-        const currentScrollAmount = Math.abs(parseInt(boxContainer2.style.transform.split('(')[1])) || 0;
-        const newScrollAmount = Math.max(currentScrollAmount - scrollAmount, 0);
-        boxContainer2.style.transform = `translateX(-${newScrollAmount}px)`;
-        updateArrowVisibility(newScrollAmount, maxScrollAmount);
-    });
+const boxContainer2 = document.querySelector('.Box-Container2');
+const leftArrow2 = document.querySelector('.Arrow.left2');
+const rightArrow2 = document.querySelector('.Arrow.right2');
 
-    rightArrow2.addEventListener('click', () => {
-        const containerWidth = container2.offsetWidth;
-        const maxScrollAmount = boxContainer2.offsetWidth - containerWidth;
-        const currentScrollAmount = Math.abs(parseInt(boxContainer2.style.transform.split('(')[1])) || 0;
-        const newScrollAmount = Math.min(currentScrollAmount + scrollAmount, maxScrollAmount);
-        boxContainer2.style.transform = `translateX(-${newScrollAmount}px)`;
-        updateArrowVisibility(newScrollAmount, maxScrollAmount);
-    });
+const scrollAmount2 = 310; // Box300 + gap10
 
-    const container3 = document.querySelector('.Container3');
-    const boxContainer3 = document.querySelector('.Box-Container3');
-    const leftArrow3 = document.querySelector('.Arrow.left3');
-    const rightArrow3 = document.querySelector('.Arrow.right3');
-    const scrollAmount3 = 300;
+leftArrow2.addEventListener('click', () => {
+  boxContainer2.scrollBy({
+    left: -scrollAmount2,
+    behavior: 'smooth'
+  });
+});
 
-    leftArrow3.addEventListener('click', () => {
-        const containerWidth = container3.offsetWidth;
-        const maxScrollAmount = boxContainer3.offsetWidth - containerWidth;
-        const currentScrollAmount = Math.abs(parseInt(boxContainer3.style.transform.split('(')[1])) || 0;
-        const newScrollAmount = Math.max(currentScrollAmount - scrollAmount, 0);
-        boxContainer3.style.transform = `translateX(-${newScrollAmount}px)`;
-        updateArrowVisibility(newScrollAmount, maxScrollAmount);
-    });
+rightArrow2.addEventListener('click', () => {
+  boxContainer2.scrollBy({
+    left: scrollAmount2,
+    behavior: 'smooth'
+  });
+});
 
-    rightArrow3.addEventListener('click', () => {
-        const containerWidth = container3.offsetWidth;
-        const maxScrollAmount = boxContainer3.offsetWidth - containerWidth;
-        const currentScrollAmount = Math.abs(parseInt(boxContainer3.style.transform.split('(')[1])) || 0;
-        const newScrollAmount = Math.min(currentScrollAmount + scrollAmount3, maxScrollAmount);
-        boxContainer3.style.transform = `translateX(-${newScrollAmount}px)`;
-        updateArrowVisibility(newScrollAmount, maxScrollAmount);
-    });
+const boxContainer3 = document.querySelector('.Box-Container3');
+const leftArrow3 = document.querySelector('.Arrow.left3');
+const rightArrow3 = document.querySelector('.Arrow.right3');
+
+const scrollAmount3 = 310; // Box300 + gap10
+
+leftArrow3.addEventListener('click', () => {
+  boxContainer3.scrollBy({
+    left: -scrollAmount3,
+    behavior: 'smooth'
+  });
+});
+
+rightArrow3.addEventListener('click', () => {
+  boxContainer3.scrollBy({
+    left: scrollAmount3,
+    behavior: 'smooth'
+  });
+});
 
     document.addEventListener("DOMContentLoaded", () => {
 
