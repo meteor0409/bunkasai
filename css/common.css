@@ -71,13 +71,6 @@
   font-style: normal;
 }
 
-.miryo-title {
-  font-family: "Zen Antique", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
 /* スマホ */
 @media (max-width: 768px) {
   .site-menu li {

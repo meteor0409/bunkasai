@@ -445,8 +445,10 @@ a.btn--radius {
   background-color: rgba(165, 165, 165, 0.3);
   color: black;
   font-size: 4rem;
-  font-weight: bold;
   border-radius: 20px;
+  font-family: "Mochiy Pop P One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .miryo-shousai {
@@ -454,6 +456,8 @@ a.btn--radius {
   font-size: 20px;
   background-color: #dee3af;
 }
+
+
 
 /* ===== メッセージ ===== */
 .message {
@@ -549,10 +553,13 @@ a.btn--radius {
   width: 100%;
   aspect-ratio: 4 / 3;
   /* Google Map向き */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .map iframe {
-  width: 100%;
+  width: 80%;
   height: 100%;
   border: 0;
 }
