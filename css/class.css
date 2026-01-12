@@ -560,7 +560,7 @@ a.btn--radius {
 
 .map iframe {
   width: 80%;
-  height: 100%;
+  height: 400px;
   border: 0;
 }
 
@@ -691,4 +691,5 @@ a.btn--radius {
   .timeschedule-picture {
     width: 100%;
   }
+
 }
