@@ -26,11 +26,13 @@
                     <br>第80回修猷大文化祭HP
                 </p>
             </div>
-            <button class="toggle-menu-button">
+            <button class="menu" aria-label="menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+
+            <!-- ナビゲーション -->
             <div class="header-site-menu">
                 <nav class="site-menu">
                     <ul>
@@ -40,7 +42,6 @@
                         <li class="navtext"><a href="#timeschedule">タイムスケジュール</a></li>
                         <li class="navtext"><a href="#stage">ステージ有志</a></li>
                         <li class="navtext"><a href="index.html#map">マップ</a></li>
-                        <!--一旦すべて書き終わったらliの中の要素にリンクを貼る-->
                     </ul>
                 </nav>
             </div>
@@ -551,15 +552,24 @@
     });
 
     window.addEventListener('load', function () {
-        var $button = document.querySelector('.toggle-menu-button');
-        var $menu = document.querySelector('.header-site-menu');
-        $button.addEventListener('click', function () {
-            if ($menu.classList.contains('is-show')) {
-                $menu.classList.remove('is-show');
-            }
-            else {
-                $menu.classList.add('is-show');
-            }
+
+        var button = document.querySelector('.menu');
+        var menu = document.querySelector('.header-site-menu');
+        var links = document.querySelectorAll('.site-menu a');
+
+        // ハンバーガーボタン開閉
+        button.addEventListener('click', function () {
+            menu.classList.toggle('is-show');
+            button.classList.toggle('close');
         });
+
+        // リンククリックで自動クローズ
+        links.forEach(function (link) {
+            link.addEventListener('click', function () {
+                menu.classList.remove('is-show');
+                button.classList.remove('close');
+            });
+        });
+
     });
 </script>

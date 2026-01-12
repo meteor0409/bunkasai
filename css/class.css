@@ -1,21 +1,14 @@
 @charset "utf-8";
 
-
-
-
 main {
   line-height: 1.5;
 }
 
 h1 {
   padding: 0.25em 0.5em;
-  /*上下 左右の余白*/
   color: #494949;
-  /*文字色*/
   background: transparent;
-  /*背景透明に*/
   border-left: solid 5px #7db4e6;
-  /*左線*/
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -28,9 +21,6 @@ h1 {
   color: #545454;
 }
 
-/* =========================
-   共通：Container
-========================= */
 .Container1,
 .Container2,
 .Container3,
@@ -43,9 +33,6 @@ h1 {
   overflow: hidden;
 }
 
-/* =========================
-   共通：Box-Container
-========================= */
 .Box-Container1,
 .Box-Container2,
 .Box-Container3,
@@ -56,14 +43,11 @@ h1 {
   display: flex;
   gap: 10px;
   padding: 10px;
-
   white-space: nowrap;
   scroll-behavior: smooth;
-
   -webkit-overflow-scrolling: touch;
   touch-action: pan-x;
-
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 
 .Box-Container1::-webkit-scrollbar,
@@ -76,9 +60,6 @@ h1 {
   display: none;
 }
 
-/* =========================
-   共通：Box
-========================= */
 .Box,
 .Box1,
 .Box2,
@@ -93,9 +74,6 @@ h1 {
   background-color: #ccc;
 }
 
-/* =========================
-   共通：Arrow（ベース）
-========================= */
 .Arrow1,
 .Arrow2,
 .Arrow3,
@@ -106,23 +84,18 @@ h1 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-
   width: 30px;
   height: 30px;
-
   background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
   font-size: 20px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
   z-index: 10;
 }
 
-/* 左右配置 */
 .Arrow1.left,
 .Arrow2.left,
 .Arrow3.left,
@@ -143,9 +116,6 @@ h1 {
   right: 0;
 }
 
-/* =========================
-   PC（矢印操作）
-========================= */
 @media (min-width: 769px) {
   .Box-Container1,
   .Box-Container2,
@@ -158,9 +128,6 @@ h1 {
   }
 }
 
-/* =========================
-   スマホ（指スクロール）
-========================= */
 @media (max-width: 768px) {
 
   .Box-Container1,
@@ -192,7 +159,6 @@ body {
 
 .section-body {
   background-color: rgba(175, 223, 228, 0.5);
-  /* ← 既存色 */
   padding: 80px 20px;
   position: relative;
   z-index: 1;
@@ -209,9 +175,7 @@ body {
   height: 20px;
   background: linear-gradient(to bottom,
       #dee3af 0%,
-      /* slogan と接する色 */
       rgba(175, 223, 228, 0.5) 100%
-      /* 下に行くほど rgba */
     );
 }
 
@@ -232,7 +196,6 @@ body {
 .material {
   display: flex;
   align-items: center;
-  /* ← 縦中央 */
   justify-content: center;
 }
 
@@ -247,7 +210,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* ← 中央揃え */
   margin: 5px;
 }
 
@@ -285,9 +247,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* ← 追加 */
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
-
 
 .time-element {
   display: flex;
@@ -295,15 +257,11 @@ body {
   text-align: center;
 }
 
-
 .colon {
   font-size: 1em;
   line-height: 1;
   margin: 0 0.5rem;
-  /* 横だけ余白 */
 }
-
-
 
 .time {
   width: 50px;
@@ -355,9 +313,16 @@ body {
 
 
 .date {
+ display: block;
+  width: fit-content;
+  margin: 0 auto;
   font-weight: bold;
   font-size: 30px;
   text-align: center;
+
+  background-color: rgba(206, 175, 227, 0.5);
+  border-radius: 10px;
+  padding: 10px 10px 10px 10px;
 }
 
 .navtext {
@@ -371,7 +336,6 @@ body {
   transition: transform 0.3s ease;
 }
 
-/*まずはお決まりのボックスサイズ算出をborer-boxに */
 *,
 *:before,
 *:after {
@@ -383,7 +347,6 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 62.5%;
-  /*rem算出をしやすくするために*/
 }
 
 .btn,
@@ -410,7 +373,9 @@ button.btn {
 
 .another-page-button {
   text-align: center;
+  padding-top: 20px;
 }
+
 
 .btn--orange,
 a.btn--orange {
@@ -422,6 +387,8 @@ a.btn--orange {
 a.btn--orange:hover {
   color: #fff;
   background: #f56500;
+  transform: scale(1.15);
+  transition: transform 0.3s ease;
 }
 
 a.btn--radius {
@@ -457,9 +424,6 @@ a.btn--radius {
   background-color: #dee3af;
 }
 
-
-
-/* ===== メッセージ ===== */
 .message {
   padding: 80px 20px;
 }
@@ -504,9 +468,6 @@ a.btn--radius {
   background-color: #e3afde;
 }
 
-
-/* ===== タイムスケジュール ===== */
-
 .timeschedule {
   background-color: #e3afde;
   padding: 80px 20px;
@@ -533,7 +494,6 @@ a.btn--radius {
   border-bottom: double 5px #ffffff;
 }
 
-/* ===== グラデーション ===== */
 .section-gradient-top1 {
   height: 20px;
   background: linear-gradient(to bottom,
@@ -548,7 +508,6 @@ a.btn--radius {
       rgba(175, 223, 228, 0.5));
 }
 
-
 .map {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -560,10 +519,8 @@ a.btn--radius {
 
 .map iframe {
   width: 80%;
-  height: 400px;
   border: 0;
 }
-
 
 .main-header {
   display: block;
@@ -611,12 +568,12 @@ a.btn--radius {
 }
 
 .footer-0 a {
-  display: flex;           /* imgのベースライン問題を根本解決 */
+  display: flex;
   align-items: center;
 }
 
 .footer-logo {
-  width: 50px;   /* 例：固定幅 */
+  width: 50px;
   height: auto;
   display: block;
 }
@@ -626,7 +583,7 @@ a.btn--radius {
 }
 
 .footer-0 p {
-  line-height: 1;          /* bodyの line-height:1 を明示的に継承 */
+  line-height: 1;
 }
 
 .footer-nav {
@@ -664,16 +621,12 @@ a.btn--radius {
 @media screen and (max-width: 768px) {
   .message-box {
     flex-direction: column;
-    /* 縦並びにする */
     align-items: center;
-    /* 中央寄せ（任意） */
   }
 
   .message-photo {
     width: 80%;
-    /* 画面幅に合わせる */
     max-width: 320px;
-    /* 大きくなりすぎ防止 */
   }
 
   .message-text {
@@ -691,5 +644,4 @@ a.btn--radius {
   .timeschedule-picture {
     width: 100%;
   }
-
 }
