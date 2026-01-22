@@ -74,7 +74,7 @@
 
 .site-menu ul {
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 
 .site-menu li a {
