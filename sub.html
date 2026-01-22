@@ -11,8 +11,9 @@
     <link href="./css/common.css" rel="stylesheet">
     <link href="./css/class.css" rel="stylesheet">
 </head>
+
 <body>
-<header class="header">
+    <header class="header">
         <div class="header-width">
             <div class="header-logoandtitle">
                 <a class="header-logo" href="./index.html">
@@ -40,9 +41,9 @@
     </header>
     <main>
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <div class="another-page-button">
+        <div class="another-page-button-sub">
             <a href="index.html">
-                <div class="btn btn--orange btn--radius">メインページは<br>
+                <div class="btn btn--orange2 btn--radius2">メインページは<br>
                     こちらから</div>
             </a>
         </div>
@@ -378,10 +379,9 @@
 <footer class="footer">
     <div class="footer-0">
         <a href="./index.html">
-            <img class="footer-logo" src="./images/logo-kari.jpg">
-            <!--あとでロゴの写真を正式なものに差し替えておく-->
+            <img class="footer-logo" src="./images/daiji_1.png">
         </a>
-        <p class="footer-title">福岡県立修猷館高等学校大文化祭HP</p>
+        <p class="footer-title">福岡県立修猷館高等学校<br>修猷大文化祭公式HP</p>
     </div>
     <div class="footer-1">
         <nav class="footer-site-menu">
@@ -389,11 +389,13 @@
                 <li class="footer-navtext"><a href="index.html#top">トップ</a></li>
                 <li class="footer-navtext"><a href="index.html#classkikaku">クラス企画</a></li>
                 <li class="footer-navtext"><a href="index.html#cultureclub-kikaku">文化部展示</a></li>
+            </ul>
+        </nav>
+        <nav class="footer-site-menu">
+            <ul class="footer-nav2">
                 <li class="footer-navtext"><a href="#timeschedule">タイムスケジュール</a></li>
                 <li class="footer-navtext"><a href="#stage">ステージ有志</a></li>
                 <li class="footer-navtext"><a href="index.html#map">マップ</a></li>
-                <!--一旦すべて書き終わったらliの中の要素にリンクを貼る-->
-                <!--フッターをすべて書き終わったらサブページにコピペする。正直な話ヘッダーもこれでいいかもしれない。ミスを減らせると思う-->
             </ul>
         </nav>
         <p class="copyright"><small>&copy;第80回修猷大文化祭運営委員会広報部署</small></p>
@@ -543,20 +545,20 @@
     });
 
     document.addEventListener("DOMContentLoaded", () => {
-  const menuButton = document.querySelector(".menu");
-  const headerMenu = document.querySelector(".header-site-menu");
+        const menuButton = document.querySelector(".menu");
+        const headerMenu = document.querySelector(".header-site-menu");
 
-  menuButton.addEventListener("click", () => {
-    menuButton.classList.toggle("close");
-    headerMenu.classList.toggle("is-show");
-  });
+        menuButton.addEventListener("click", () => {
+            menuButton.classList.toggle("close");
+            headerMenu.classList.toggle("is-show");
+        });
 
-  const menuLinks = document.querySelectorAll(".site-menu a");
-  menuLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      menuButton.classList.remove("close");
-      headerMenu.classList.remove("is-show");
+        const menuLinks = document.querySelectorAll(".site-menu a");
+        menuLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                menuButton.classList.remove("close");
+                headerMenu.classList.remove("is-show");
+            });
+        });
     });
-  });
-});
 </script>

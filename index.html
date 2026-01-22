@@ -12,8 +12,11 @@
     <link href="./css/class.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header class="header">
         <div class="header-width">
@@ -80,12 +83,12 @@
                 <br>10:00-15:30
                 <br>令和8年3月21日 <small><small>(土)</small></small>
                 <br>9:00-15:00
-            </p>       
+            </p>
             <div class="another-page-button">
-            <a href="sub.html">
-                <p class="btn btn--orange btn--radius">有志・食堂・バザー<br>はこちら</p>
-            </a>
-        </div>
+                <a href="sub.html">
+                    <p class="btn btn--orange btn--radius">有志・食堂・バザー<br>はこちら</p>
+                </a>
+            </div>
         </div>
         <div class="section-gradient-top"></div>
         <div class="slogan" id="slogan">
@@ -571,22 +574,23 @@
         <div class="footer-1">
             <nav class="footer-site-menu">
                 <ul class="footer-nav">
-                <li class="footer-navtext"><a href="#top">トップ</a></li>
-                <li class="footer-navtext"><a href="#classkikaku">クラス企画</a></li>
-                <li class="footer-navtext"><a href="#cultureclub-kikaku">文化部展示</a></li>
+                    <li class="footer-navtext"><a href="#top">トップ</a></li>
+                    <li class="footer-navtext"><a href="#classkikaku">クラス企画</a></li>
+                    <li class="footer-navtext"><a href="#cultureclub-kikaku">文化部展示</a></li>
                 </ul>
             </nav>
             <nav class="footer-site-menu">
                 <ul class="footer-nav2">
-                <li class="footer-navtext"><a href="#timeschedule">タイムスケジュール</a></li>
-                <li class="footer-navtext"><a href="sub.html#stage">ステージ有志</a></li>
-                <li class="footer-navtext"><a href="#map">マップ</a></li>
+                    <li class="footer-navtext"><a href="#timeschedule">タイムスケジュール</a></li>
+                    <li class="footer-navtext"><a href="sub.html#stage">ステージ有志</a></li>
+                    <li class="footer-navtext"><a href="#map">マップ</a></li>
                 </ul>
             </nav>
             <p class="copyright"><small>&copy;第80回修猷大文化祭運営委員会広報部署</small></p>
         </div>
     </footer>
-    </body>
+</body>
+
 </html>
 <script>
     const boxContainer = document.querySelector('.Box-Container1');
@@ -649,60 +653,60 @@
         });
     });
 
-document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
 
-  const countdownWrapper = document.querySelector(".countdown");
+        const countdownWrapper = document.querySelector(".countdown");
 
-  const day  = document.getElementById("day");
-  const hour = document.getElementById("hour");
-  const min  = document.getElementById("min");
-  const sec  = document.getElementById("sec");
+        const day = document.getElementById("day");
+        const hour = document.getElementById("hour");
+        const min = document.getElementById("min");
+        const sec = document.getElementById("sec");
 
-  const target = new Date(2026, 2, 20, 10, 0, 0);
-  let timerId;
+        const target = new Date(2026, 2, 20, 10, 0, 0);
+        let timerId;
 
-  function update() {
-    const now = new Date();
-    const diff = target - now;
+        function update() {
+            const now = new Date();
+            const diff = target - now;
 
-    if (diff <= 0) {
-      clearTimeout(timerId);
-      if (countdownWrapper) countdownWrapper.style.display = "none";
-      return;
-    }
+            if (diff <= 0) {
+                clearTimeout(timerId);
+                if (countdownWrapper) countdownWrapper.style.display = "none";
+                return;
+            }
 
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor(diff / 3600000) % 24;
-    const m = Math.floor(diff / 60000) % 60;
-    const s = Math.floor(diff / 1000) % 60;
+            const d = Math.floor(diff / 86400000);
+            const h = Math.floor(diff / 3600000) % 24;
+            const m = Math.floor(diff / 60000) % 60;
+            const s = Math.floor(diff / 1000) % 60;
 
-    day.textContent  = String(d).padStart(2, "0");
-    hour.textContent = String(h).padStart(2, "0");
-    min.textContent  = String(m).padStart(2, "0");
-    sec.textContent  = String(s).padStart(2, "0");
+            day.textContent = String(d).padStart(2, "0");
+            hour.textContent = String(h).padStart(2, "0");
+            min.textContent = String(m).padStart(2, "0");
+            sec.textContent = String(s).padStart(2, "0");
 
-    const delay = 1000 - (Date.now() % 1000);
-    timerId = setTimeout(update, delay);
-  }
+            const delay = 1000 - (Date.now() % 1000);
+            timerId = setTimeout(update, delay);
+        }
 
-  update();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const menuButton = document.querySelector(".menu");
-  const headerMenu = document.querySelector(".header-site-menu");
-
-  menuButton.addEventListener("click", () => {
-    menuButton.classList.toggle("close");
-    headerMenu.classList.toggle("is-show");
-  });
-
-  const menuLinks = document.querySelectorAll(".site-menu a");
-  menuLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      menuButton.classList.remove("close");
-      headerMenu.classList.remove("is-show");
+        update();
     });
-  });
-});
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuButton = document.querySelector(".menu");
+        const headerMenu = document.querySelector(".header-site-menu");
+
+        menuButton.addEventListener("click", () => {
+            menuButton.classList.toggle("close");
+            headerMenu.classList.toggle("is-show");
+        });
+
+        const menuLinks = document.querySelectorAll(".site-menu a");
+        menuLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                menuButton.classList.remove("close");
+                headerMenu.classList.remove("is-show");
+            });
+        });
+    });
 </script>
