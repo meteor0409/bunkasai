@@ -4,35 +4,26 @@
 <head>
     <meta charset="UTF=8">
     <title>testpage-sub</title>
-    <!--公開するときにはタイトルを修正する-->
-    <meta name="description" content="仮置き">
+    <meta name="description" content="ミスチェ用ページ">
     <meta name="viewport" content="width=device-width">
     <meta name="robots" content="noindex, follow">
-    <!--公開するときにはこのメタタグを消す-->
     <link href="./css/reset.css" rel="stylesheet">
     <link href="./css/common.css" rel="stylesheet">
     <link href="./css/class.css" rel="stylesheet">
 </head>
-
 <body>
-    <header class="header">
+<header class="header">
         <div class="header-width">
             <div class="header-logoandtitle">
                 <a class="header-logo" href="./index.html">
-                    <img src="./images/logo-kari.jpg">
-                    <!--あとでロゴの写真を正式なものに差し替えておく-->
+                    <img src="./images/daiji_1.png">
                 </a>
-                <p class="header-title">福岡県立修猷館高等学校
-                    <br>第80回修猷大文化祭HP
-                </p>
             </div>
             <button class="menu" aria-label="menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-
-            <!-- ナビゲーション -->
             <div class="header-site-menu">
                 <nav class="site-menu">
                     <ul>
@@ -73,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="section-gradient-bottom1"></div>
+        <div class="gradation"></div>
         <div class="stage" id="stage">
             <h1>ステージ有志</h1>
             <div class="Container1">
@@ -551,25 +542,21 @@
         });
     });
 
-    window.addEventListener('load', function () {
+    document.addEventListener("DOMContentLoaded", () => {
+  const menuButton = document.querySelector(".menu");
+  const headerMenu = document.querySelector(".header-site-menu");
 
-        var button = document.querySelector('.menu');
-        var menu = document.querySelector('.header-site-menu');
-        var links = document.querySelectorAll('.site-menu a');
+  menuButton.addEventListener("click", () => {
+    menuButton.classList.toggle("close");
+    headerMenu.classList.toggle("is-show");
+  });
 
-        // ハンバーガーボタン開閉
-        button.addEventListener('click', function () {
-            menu.classList.toggle('is-show');
-            button.classList.toggle('close');
-        });
-
-        // リンククリックで自動クローズ
-        links.forEach(function (link) {
-            link.addEventListener('click', function () {
-                menu.classList.remove('is-show');
-                button.classList.remove('close');
-            });
-        });
-
+  const menuLinks = document.querySelectorAll(".site-menu a");
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      menuButton.classList.remove("close");
+      headerMenu.classList.remove("is-show");
     });
+  });
+});
 </script>

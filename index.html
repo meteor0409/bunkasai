@@ -207,7 +207,7 @@
                         <img class="img-class" src="./images/testonlyimage.jpg">
                         <p class="class-shousai">
                             教室：◯-◯教室
-                            <br>ここに説明を挿入
+                            <br>これはテスト用に60文字を打ち込んでいますこれはテスト用に60文字を打ち込んでいますこれはテスト用に60文字を打ち込んでいます
                         </p>
                     </div>
                     <div class="Box1">
@@ -577,7 +577,7 @@
                 </ul>
             </nav>
             <nav class="footer-site-menu">
-                <ul clas="footer-nav">
+                <ul class="footer-nav2">
                 <li class="footer-navtext"><a href="#timeschedule">タイムスケジュール</a></li>
                 <li class="footer-navtext"><a href="sub.html#stage">ステージ有志</a></li>
                 <li class="footer-navtext"><a href="#map">マップ</a></li>
@@ -686,5 +686,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   update();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuButton = document.querySelector(".menu");
+  const headerMenu = document.querySelector(".header-site-menu");
+
+  menuButton.addEventListener("click", () => {
+    menuButton.classList.toggle("close");
+    headerMenu.classList.toggle("is-show");
+  });
+
+  const menuLinks = document.querySelectorAll(".site-menu a");
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      menuButton.classList.remove("close");
+      headerMenu.classList.remove("is-show");
+    });
+  });
 });
 </script>
