@@ -595,6 +595,10 @@ a.btn--radius2 {
   padding-top: 80px;
 }
 
+.place {
+  margin-left: 2rem;
+}
+
 .class-shousai {
   min-width: 0;
   max-width: 300px;

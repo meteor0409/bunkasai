@@ -32,7 +32,6 @@
 .header-logo {
   width: 300px;
   height: 80px;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,6 +41,13 @@
   width: 130%;
   height: 130%;
   object-fit: contain;
+}
+
+@media screen and (max-width: 340px) {
+  .header-logo {
+    width: 250px;
+    height: auto;
+  }
 }
 
 @supports (-webkit-touch-callout: none) {
@@ -90,6 +96,8 @@
   display: none;
   background: none;
   border: none;
+  min-width: 50px;
+  flex-shrink: 0;
 }
 
 .menu span {
