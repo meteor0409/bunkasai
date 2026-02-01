@@ -589,6 +589,73 @@ a.btn--radius2 {
   }
 }
 
+  .Box-Container1,
+  .Box-Container2,
+  .Box-Container3,
+  .Box-Container4,
+  .Box-Container5,
+  .Box-Container6,
+  .Box-Container7 {
+  overflow-x: auto;
+
+  -webkit-overflow-scrolling: touch;
+  }
+
+  .Box-Container1::-webkit-scrollbar,
+  .Box-Container2::-webkit-scrollbar,
+  .Box-Container3::-webkit-scrollbar,
+  .Box-Container4::-webkit-scrollbar,
+  .Box-Container5::-webkit-scrollbar,
+  .Box-Container6::-webkit-scrollbar,
+  .Box-Container7::-webkit-scrollbar {
+  display: none;
+}
+
+  .Box-Container1,
+  .Box-Container2,
+  .Box-Container3,
+  .Box-Container4,
+  .Box-Container5,
+  .Box-Container6,
+  .Box-Container7 {
+  scrollbar-width: none;
+}
+
+  .Box-Container1,
+  .Box-Container2,
+  .Box-Container3,
+  .Box-Container4,
+  .Box-Container5,
+  .Box-Container6,
+  .Box-Container7 {
+  -ms-overflow-style: none;
+}
+
+
+  .Box-Container1,
+  .Box-Container2,
+  .Box-Container3,
+  .Box-Container4,
+  .Box-Container5,
+  .Box-Container6,
+  .Box-Container7 {
+  overflow-x: auto;
+  display: flex;
+
+  scroll-snap-type: x mandatory;
+}
+
+.Box,
+.Box1,
+.Box2,
+.Box4,
+.Box5,
+.Box6,
+.Box7 {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
 .class-kikaku {
   display: block;
   margin-top: -80px;
@@ -597,6 +664,18 @@ a.btn--radius2 {
 
 .place {
   margin-left: 2rem;
+}
+
+.title {
+  border-top: solid 1px #000;
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.class {
+  text-align: center;
 }
 
 .class-shousai {
