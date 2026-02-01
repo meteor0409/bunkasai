@@ -1,5 +1,11 @@
 @charset "utf-8";
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 main {
   line-height: 1.5;
 }
