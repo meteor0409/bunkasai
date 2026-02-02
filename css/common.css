@@ -72,14 +72,6 @@
   }
 }
 
-.header-title {
-  font-weight: bold;
-  font-size: 1.4rem;
-  font-size: clamp(1.2rem, 2.6vw, 1.7rem);
-  line-height: 1.35;
-  margin: 0;
-}
-
 .site-menu ul {
   display: flex;
 }

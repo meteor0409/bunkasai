@@ -65,6 +65,7 @@ body {
 .daiji {
   display: flex;
   justify-content: center;
+  object-fit: contain;
 }
 
 @supports (-webkit-touch-callout: none) {
@@ -673,7 +674,7 @@ a.btn--radius2 {
 }
 
 .title {
-  border-top: solid 1px #000;
+  border-top: solid 1.5px #000000;
   display: block;
   margin-left: 10px;
   margin-right: 10px;
