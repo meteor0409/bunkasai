@@ -51,7 +51,7 @@
                         <li class="navtext"><a href="index.html#classkikaku">クラス企画</a></li>
                         <li class="navtext"><a href="index.html#cultureclub-kikaku">文化部展示</a></li>
                         <li class="navtext"><a href="#timeschedule">タイムスケジュール</a></li>
-                        <li class="navtext"><a href="#volunteer">ステージ有志</a></li>
+                        <li class="navtext"><a href="#volunteer">ステージ</a></li>
                         <li class="navtext"><a href="index.html#map">マップ</a></li>
                     </ul>
                 </nav>
@@ -490,14 +490,43 @@
         <div class="cafeteria">
             <h1>食堂</h1>
             <p>北棟1階</p>
-            <h2 class="menulist">メニュー表</h2>
             <!--メニュー表をもらったらここに入力する-->
+            <div><span class="menu-box">メニュー</span><br>
+                <div class="menu-container">
+                    <p>
+                        うどん<br>
+                        カレー<br>
+                        唐揚げ<br>
+                        おにから<br>
+                        揚げ餅<br>
+                        フランクフルト<br>
+                        修猷館ノート
+                    </p>
+                    <p class="nedan">
+                        500円<br>
+                        500円<br>
+                        300円<br>
+                        300円<br>
+                        150円<br>
+                        200円<br>
+                        150円<br>
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="bazaar">
             <h1>バザー</h1>
-            <p>ここにバザーの場所を入力する</p>
-            <h2 class="menulist">商品</h2>
-            <!--メニューをもらったらここに入力する-->
+            <p>1Fピロティ</p>
+            <div><span class="menu-box">メニュー</span><br>
+                <div class="menu-container">
+                    <p>
+                        example<br>
+                    </p>
+                    <p class="nedan">
+                        500円<br>
+                    </p>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -655,10 +684,6 @@
 
             @media screen and (max-width: 768px) {
 
-                body {
-                    padding-top: 80px;
-                }
-
                 .menu {
                     display: block;
                 }
@@ -701,12 +726,7 @@
 
             @media screen and (max-width: 768px) {
 
-                body {
-                    padding-top: 80px;
-                }
-
                 .header {
-                    position: fixed;
                     width: 100%;
                 }
 
@@ -817,10 +837,6 @@
 
             @media screen and (max-width: 768px) {
 
-                body {
-                    padding-top: 80px;
-                }
-
                 .menu {
                     display: block;
                 }
@@ -862,10 +878,6 @@
             }
 
             @media screen and (max-width: 768px) {
-
-                body {
-                    padding-top: 80px;
-                }
 
                 .header {
                     width: 100%;
@@ -925,7 +937,6 @@
             html,
             body {
                 max-width: 100%;
-                overflow-x: hidden;
             }
 
             main {
@@ -939,14 +950,6 @@
                 border-left: solid 5px #7db4e6;
                 margin-top: 20px;
                 margin-bottom: 20px;
-            }
-
-            .menulist {
-                position: relative;
-                padding: 0.1em 0.5em;
-                background: -webkit-linear-gradient(right, rgb(255, 186, 115), transparent);
-                background: linear-gradient(to right, rgb(255, 186, 115), transparent);
-                color: #545454;
             }
 
             .main-header {
@@ -1124,27 +1127,7 @@
                 border-bottom: double 5px #ffffff;
             }
 
-            .annai {
-                margin-top: -80px;
-                padding-top: 80px;
-            }
-
-            .map {
-                width: 80%;
-                height: 66.6vh;
-                margin: 0 auto;
-                position: relative;
-                border: 1px solid rgba(33, 37, 41, 0.25);
-                box-shadow:
-                    0 1px 2px rgba(33, 37, 41, 0.25),
-                    4px 6px 14px rgba(33, 37, 41, 0.35);
-            }
-
-            .map iframe {
-                width: 100%;
-                height: 100%;
-                border: 0;
-            }
+            
 
             .gradation {
                 height: 80px;
@@ -1223,6 +1206,7 @@
                 box-shadow:
                     0 1px 2px rgba(33, 37, 41, 0.25),
                     4px 6px 14px rgba(33, 37, 41, 0.35);
+                scroll-snap-align: start;
             }
 
             .Arrow1,
@@ -1371,12 +1355,6 @@
                 scroll-snap-align: start;
             }
 
-            .class-kikaku {
-                display: block;
-                margin-top: -80px;
-                padding-top: 80px;
-            }
-
             .place {
                 margin-left: 2rem;
             }
@@ -1393,12 +1371,6 @@
                 text-align: center;
             }
 
-            .class-shousai {
-                min-width: 0;
-                max-width: 300px;
-                overflow-wrap: break-word;
-            }
-
             .volunteer {
                 text-align: center;
             }
@@ -1409,26 +1381,18 @@
                 overflow-wrap: break-word;
             }
 
-            .cultureclub-kikaku {
-                display: block;
-                margin-top: -80px;
-                padding-top: 80px;
-            }
-
             .stage {
                 display: block;
                 margin-top: -80px;
                 padding-top: 80px;
             }
 
-            .tenji-volunteer {
-                display: block;
-                margin-top: -80px;
-                padding-top: 80px;
+            .menu-container {
+                display: flex;
             }
 
-            .space {
-                height: 20px;
+            .nedan {
+                padding-left: 2rem;
             }
 
             .footer {
@@ -1691,7 +1655,7 @@
         <nav class="footer-site-menu">
             <ul class="footer-nav2">
                 <li class="footer-navtext"><a href="#timeschedule">タイムスケジュール</a></li>
-                <li class="footer-navtext"><a href="#stage">ステージ有志</a></li>
+                <li class="footer-navtext"><a href="#stage">ステージ</a></li>
                 <li class="footer-navtext"><a href="index.html#map">マップ</a></li>
             </ul>
         </nav>
