@@ -16,7 +16,7 @@
     <header class="header">
         <div class="header-width">
             <div class="header-logoandtitle">
-                <a class="header-logo" href="./index.html">
+                <a class="header-logo" href="https://shuyu.fku.ed.jp/">
                     <img src="./images/r07_bunka_001_daiji_1.png">
                 </a>
             </div>
@@ -74,12 +74,14 @@
                     <div class="timeschedule-picture">
                         <p class="timeschedule-text">タイムスケジュール1日目</p>
                         <br>
-                        <img src="./images/test.jpg">
+                        <img src="./images/r07_bunka_092_timeschedule_1.png">
+                        <img src="./images/r07_bunka_093_timeschedule_2.png">
                     </div>
                     <div class="timeschedule-picture">
                         <p class="timeschedule-text">タイムスケジュール2日目</p>
                         <br>
-                        <img src="./images/test.jpg">
+                        <img src="./images/r07_bunka_094_timeschedule_3.png">
+                        <img src="./images/r07_bunka_095_timeschedule_4.png">
                     </div>
                 </div>
             </div>
@@ -487,8 +489,8 @@
                 </script>
             </div>
         </div>
-        <div class="cafeteria">
-            <h1>食堂</h1>
+        <h1>食堂</h1>
+        <div class="cafeteria-bazaar">
             <p>北棟1階</p>
             <!--メニュー表をもらったらここに入力する-->
             <div><span class="menu-box">メニュー</span><br>
@@ -514,19 +516,44 @@
                 </div>
             </div>
         </div>
-        <div class="bazaar">
-            <h1>バザー</h1>
+        <h1>バザー</h1>
+        <div class="cafeteria-bazaar">
             <p>1Fピロティ</p>
             <div><span class="menu-box">メニュー</span><br>
                 <div class="menu-container">
                     <p>
-                        example<br>
+                        パン<br>
+                        飲み物<br>
+                        マフィン(2個入り)<br>
+                        修猷大文化祭クリアファイル
                     </p>
                     <p class="nedan">
-                        500円<br>
+                        150円<br>
+                        120円<br>
+                        350円<br>
+                        200円
                     </p>
                 </div>
             </div>
+            <br>
+            <p>
+                商品は売り切れ次第終了となります。<br>
+                ぜひ、お早めにお買い求めください！<br>
+                お支払いは現金のみとなっております。可能な限り、お釣りがないようにお願いいたします。<br>
+                このバザーでの収益は、日本赤十字社に寄付いたします。
+            </p>
+            <br>
+            <p>
+            【協賛】<br>
+            就労継続支援B型事業所 NPO法人FLAP様<br>
+            社会福祉法人 飯盛会 障がい福祉サービス事業所 サンハウス はねど家様<br>
+            社会福祉法人たかとり福祉会 コトリ珈琲店様<br>
+            サニー高取店様
+            </p>
+        </div>
+        <div class="illust">
+            <h1>設営装飾</h1>
+            <h1>ポスター・パンフレット</h1>
         </div>
     </main>
 
@@ -1387,6 +1414,18 @@
                 padding-top: 80px;
             }
 
+            .cafeteria-bazaar {
+                gap: 20px;
+                margin-bottom: 24px;
+                padding: 10px;
+                background-color: rgba(179, 242, 221, 0.5);
+                border-radius: 7px;
+                border: 1px solid rgba(33, 37, 41, 0.25);
+                box-shadow:
+                    0 1px 2px rgba(33, 37, 41, 0.25),
+                    4px 6px 14px rgba(33, 37, 41, 0.35);
+            }
+
             .menu-container {
                 display: flex;
             }
@@ -1521,6 +1560,20 @@
                 text-align: center;
             }
 
+            @media screen and (max-width: 768px) {
+                .timeschedule-box {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 20px;
+                    margin-bottom: 24px;
+                    padding: 10px;
+                }
+
+                .timeschedule-picture {
+                    width: 100%;
+                }
+            }
+
             *,
             ::before,
             ::after {
@@ -1639,7 +1692,7 @@
 </body>
 <footer class="footer">
     <div class="footer-0">
-        <a href="./index.html">
+        <a href="https://shuyu.fku.ed.jp/">
             <img class="footer-logo" src="./images/r07_bunka_001_daiji_1.png">
         </a>
         <p class="footer-title">福岡県立修猷館高等学校<br>修猷大文化祭公式HP</p>
