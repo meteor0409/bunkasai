@@ -234,27 +234,27 @@
                         <br>
                         <div class="tmb">
                             <label for="pop-01">
-                                <img src="images/r07_bunka_092_timeschedule_1.png" alt="image_01" class="tmb_img">
+                                <img src="images/r07_bunka_087_timeschedule_1.png" alt="image_01" class="tmb_img">
                             </label>
                             <input type="checkbox" value="" id="pop-01">
                             <div class="popup">
                                 <label for="pop-01" class="popup__btn"></label>
                                 <label for="pop-01" class="popup__btnarea"></label>
                                 <div class="popup__img">
-                                    <img src="images/r07_bunka_092_timeschedule_1.png" alt="image_01">
+                                    <img src="images/r07_bunka_087_timeschedule_1.png" alt="image_01">
                                 </div>
                             </div>
                         </div>
                         <div class="tmb">
                             <label for="pop-02">
-                                <img src="images/r07_bunka_093_timeschedule_2.png" alt="image_01" class="tmb_img">
+                                <img src="images/r07_bunka_088_timeschedule_2.png" alt="image_01" class="tmb_img">
                             </label>
                             <input type="checkbox" value="" id="pop-02">
                             <div class="popup">
                                 <label for="pop-02" class="popup__btn"></label>
                                 <label for="pop-02" class="popup__btnarea"></label>
                                 <div class="popup__img">
-                                    <img src="images/r07_bunka_093_timeschedule_2.png" alt="image_01">
+                                    <img src="images/r07_bunka_088_timeschedule_2.png" alt="image_01">
                                 </div>
                             </div>
                         </div>
@@ -264,33 +264,117 @@
                         <br>
                         <div class="tmb">
                             <label for="pop-01">
-                                <img src="images/r07_bunka_094_timeschedule_3.png" alt="image_01" class="tmb_img">
+                                <img src="images/r07_bunka_089_timeschedule_3.png" alt="image_01" class="tmb_img">
                             </label>
                             <input type="checkbox" value="" id="pop-01">
                             <div class="popup">
                                 <label for="pop-01" class="popup__btn"></label>
                                 <label for="pop-01" class="popup__btnarea"></label>
                                 <div class="popup__img">
-                                    <img src="images/r07_bunka_094_timeschedule_3.png" alt="image_01">
+                                    <img src="images/r07_bunka_089_timeschedule_3.png" alt="image_01">
                                 </div>
                             </div>
                         </div>
                         <div class="tmb">
                             <label for="pop-02">
-                                <img src="images/r07_bunka_095_timeschedule_4.png" alt="image_01" class="tmb_img">
+                                <img src="images/r07_bunka_090_timeschedule_4.png" alt="image_01" class="tmb_img">
                             </label>
                             <input type="checkbox" value="" id="pop-02">
                             <div class="popup">
                                 <label for="pop-02" class="popup__btn"></label>
                                 <label for="pop-02" class="popup__btnarea"></label>
                                 <div class="popup__img">
-                                    <img src="images/r07_bunka_095_timeschedule_4.png" alt="image_01">
+                                    <img src="images/r07_bunka_090_timeschedule_4.png" alt="image_01">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+           <script>
+document.querySelectorAll(".popup__img").forEach(container => {
+
+    const img = container.querySelector("img");
+
+    let scale = 1;
+    let minScale = 1;
+    let maxScale = 5;
+
+    let posX = 0;
+    let posY = 0;
+
+    let isDragging = false;
+    let startX, startY;
+
+    function updateTransform() {
+        img.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+    }
+
+    function resetZoom() {
+        scale = 1;
+        posX = 0;
+        posY = 0;
+        updateTransform();
+    }
+
+    // ===== トラックパッドピンチ（ctrl + wheel）=====
+    img.addEventListener("wheel", e => {
+        if (e.ctrlKey) {
+            e.preventDefault();
+
+            const rect = img.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left;
+            const offsetY = e.clientY - rect.top;
+
+            const zoom = -e.deltaY * 0.01;
+            const newScale = Math.min(Math.max(minScale, scale + zoom), maxScale);
+
+            const scaleRatio = newScale / scale;
+
+            posX -= (offsetX - posX) * (scaleRatio - 1);
+            posY -= (offsetY - posY) * (scaleRatio - 1);
+
+            scale = newScale;
+            updateTransform();
+        }
+    }, { passive: false });
+
+    // ===== マウスドラッグ移動 =====
+    img.addEventListener("mousedown", e => {
+        if (scale > 1) {
+            isDragging = true;
+            startX = e.clientX - posX;
+            startY = e.clientY - posY;
+            container.style.cursor = "grabbing";
+        }
+    });
+
+    window.addEventListener("mousemove", e => {
+        if (isDragging) {
+            posX = e.clientX - startX;
+            posY = e.clientY - startY;
+            updateTransform();
+        }
+    });
+
+    window.addEventListener("mouseup", () => {
+        isDragging = false;
+        container.style.cursor = "grab";
+    });
+
+    // ===== ダブルクリックでリセット =====
+    img.addEventListener("dblclick", resetZoom);
+
+    // ===== ポップアップ閉じたらリセット =====
+    const checkbox = container.closest(".tmb").querySelector("input[type='checkbox']");
+    checkbox.addEventListener("change", () => {
+        if (!checkbox.checked) {
+            resetZoom();
+        }
+    });
+
+});
+</script>
         </div>
         <div class="gradation"></div>
         <div class="class-kikaku" id="classkikaku">
@@ -299,7 +383,7 @@
                 <div class="Box-Container1">
                     <div class="Box1">
                         <p class="class">体験<span class="place"></span>1年1組<br>北棟4階 1-1教室<br><span class="title"><small>Hope to
-                                chocolate<span class="place"></span>~私、この国救うので~</small></span></p>
+                                chocolate<span class="place"></span>~私、この国救うので。~</small></span></p>
                         <img class="img-class" src="./images/r07_bunka_007_1-1.png">
                         <p class="class-shousai">
                             あなたは、異世界に派遣された精鋭。<br>
@@ -326,7 +410,7 @@
                     <div class="Box1">
                         <p class="class">展示<span class="place"></span>1年4組<br>北棟4階 1-3教室<br><span
                                 class="title">神話協奏曲コンチェルト</span></p>
-                        <img class="img-class" src="./images/r07_bunka_010_1-4.jpeg">
+                        <img class="img-class" src="./images/r07_bunka_010_1-4.jpg">
                         <p class="class-shousai">
                             4つの神話が1-4に今集結！！
                             <br>迫力満点のあのmyth(神話)といざご対面。
@@ -360,8 +444,7 @@
                     </div>
                     <div class="Box1">
                         <p class="class">展示・体験<span class="place"></span>1年8組<br>北棟3階
-                            2-1教室<br><span class="title">World
-                                Depression</span></p>
+                            2-1教室<br><span class="title">今日、不況になりました。</span></p>
                         <img class="img-class" src="./images/r07_bunka_014_1-8.jpg">
                         <p class="class-shousai">
                             1929年ウォール街での株式市場の暴落から始まった世界恐慌、正解のない選択の先に待つのは希望か絶望か。
@@ -385,7 +468,7 @@
                     </div>
                     <div class="Box1">
                         <p class="class">体験<span class="place"></span>1年11組<br>中棟5階 講義室<br><span
-                                class="title">血液循環迷路</span>
+                                class="title">血 ~血液の循環について~</span>
                         </p>
                         <img class="img-class" src="./images/r07_bunka_017_1-11.jpg">
                         <p class="class-shousai">
@@ -554,7 +637,7 @@
                         <p class="class">展示<span class="place"></span>新聞部<br>2階南ホール<br><span
                                 class="title">ブンブン新ブン部はじめますよ</span>
                         </p>
-                        <img class="img-class" src="./images/r07_bunka_033_shinbun.png">
+                        <img class="img-class" src="./images/r07_bunka_033_shinbun.jpg">
                         <p class="class-shousai">
                             過去の新聞を配布中です！その他にも修猷新聞の魅力をたっぷり詰め込んだ展示をしています。あなたも修猷新聞の虜に……！
                         </p>
@@ -571,9 +654,8 @@
                         </p>
                     </div>
                     <div class="Box">
-                        <p class="class">公演<span class="place"></span>演劇部<br>講堂<br><span
-                                class="title"><small><small>失敗博覧会<span
-                                            class="place"></span>もしも全員が「台本」を読めてしまったら</small></small></span></p>
+                        <p class="class">公演<span class="place"></span>演劇部<br>講堂<br></p>
+                        <img class="engeki-title" src="images/r07_bunka_091_engeki_title.png">
                         <img class="img-class" src="./images/r07_bunka_049_engeki.png">
                         <p class="class-shousai">
                             生徒創作の30分劇2本立て！笑いあり、涙あり、感動あり！今伝えたいメッセージを込めました。ぜひご観劇ください！
@@ -664,7 +746,7 @@
                         </p>
                     </div>
                     <div class="Box">
-                        <p class="class">体験<span class="place"></span>ESS部<br>南棟4階 1-8教室<br><span class="title">Let's
+                        <p class="class">体験<span class="place"></span>ESS部<br>南棟4階 1-8教室<br><span class="title">Let’s
                                 hunt! ~St.Patrick’s Day~</span></p>
                         <img class="img-class" src="./images/r07_bunka_030_ESS.jpeg">
                         <p class="class-shousai">
@@ -701,7 +783,7 @@
                     </div>
                     <div class="Box">
                         <p class="class">展示・体験<span class="place"></span>パソコン部<br>中棟4階
-                            パソコン室<br><span class="title">from Digital</span></p>
+                            パソコン室<br><span class="title">From Digital</span></p>
                         <img class="img-class" src="./images/r07_bunka_039_computer.png">
                         <p class="class-shousai">
                             部員が制作した、イラスト・音楽・ゲームなどなどを展示します。
@@ -1619,9 +1701,10 @@
             }
 
             .popup__img img {
-                width: 100%;
+                width: 101-80%;
                 height: 100%;
                 object-fit: contain;
+                padding-top: 110px;
             }
 
             input[type="checkbox"] {
@@ -1633,6 +1716,19 @@
                 opacity: 1;
                 transition: opacity 0.3s;
             }
+
+            .popup__img {
+    overflow: hidden;
+    cursor: grab;
+    touch-action: none;
+}
+
+.popup__img img {
+    transition: transform 0.05s ease;
+    transform-origin: center center;
+    user-select: none;
+    -webkit-user-drag: none;
+}
 
             .annai {
                 margin-top: -80px;
@@ -1900,6 +1996,15 @@
                 margin-left: 10px;
                 margin-right: 10px;
                 font-size: 18px;
+            }
+
+            .engeki-title {
+                border-top: solid 1.5px #000000;
+                display: block;
+                margin-left: 10px;
+                margin-right: 10px;
+                max-width: 330px;
+                align-items: center;
             }
 
             .img-class {
