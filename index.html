@@ -57,6 +57,7 @@
                         <li class="navtext"><a href="#cultureclub-kikaku">新聞部・文化部企画</a></li>
                         <li class="navtext"><a href="#timeschedule">タイムスケジュール</a></li>
                         <li class="navtext"><a href="sub.html#stage">ステージ</a></li>
+                        <li class="navtext"><a href="sub.html#bazaar-cafeteria">食堂・バザー</a></li>
                         <li class="navtext"><a href="#map">マップ</a></li>
                     </ul>
                 </nav>
@@ -194,9 +195,9 @@
                     <br>
                     <p>
                         ばかみたいに真っ直ぐ、やりたいことに向き合う。そんな当たり前ではないことが出来る。それが修猷大文化祭である。<br>
-                        今日までの過程の中で、避けられなかった対立も、葛藤もあった。それでも私達は向き合い、全力でぶつかり合いながら共に走ってきた。理想を理想のまま終わらせない努力を積み上げた。私達が今日まで費やした時間、労力、想像、工夫……その全てが今日の熱をつくりあげてきた。全員が主役だ。<br>
+                        今日までの過程の中には、避けられなかった対立も、葛藤もあった。それでも私達は向き合い、全力でぶつかり合いながら共に走ってきた。理想を理想のまま終わらせない努力を積み上げた。私達が今日まで費やした時間、労力、想像、工夫……その全てが今日の熱をつくりあげてきた。全員が主役だ。<br>
                         “あなたの大文化祭”だ。あなたの企画の熱が、ステージの熱が、そして何よりもあなた自身の熱が、すべてを魅了する準備はもう出来ている。そうだろう？<br>
-                        修猷生よ、私達の「鬼了」をもってすべてを「魅了」し、「未了」の第80回修猷大文化祭を実現しようではないか。私達の、私達にしかできない修猷大文化祭を、すべてに刻み込んでやろう。<br>
+                        修猷生よ、私達の「鬼了」をもって全てを「魅了」し、「未了」の第80回修猷大文化祭を実現しようではないか。私達の、私達にしかできない修猷大文化祭を、すべてに刻み込んでやろう。<br>
                     </p>
                 </div>
             </div>
@@ -208,12 +209,11 @@
                     <span class="yakushoku">総務</span>
                     <br>
                     <p>
-                        本気とはなんだろうか。<br>
-                        青春とはなんだろうか。<br>
+                        本気とはなんだろうか。青春とはなんだろうか。<br>
                         その答えを示すために、仲間と協力し、楽しみ、時にぶつかりながら、全員が同じ方向を向いて努力を重ね、今日という日を迎えた。<br>
                         修猷大文化祭を唯一無二のものにするために、私たちは本気で企画やステージ、作品を創り上げてきた。<br>
                         だから、仲間を、観客を、そして自分を「魅了」する。<br>
-                        そのために積み上げてきたすべてを、今日ここで開花させよう。<br>
+                        そのために積み上げてきた全てを、今日ここで開花させよう。<br>
                         すると、その熱は新たな遺伝子となり、修猷のDNAに刻まれていくだろう。<br>
                         大文化祭とはなんだろうか。<br>
                         修猷とはなんだろうか。<br>
@@ -291,90 +291,90 @@
                     </div>
                 </div>
             </div>
-           <script>
-document.querySelectorAll(".popup__img").forEach(container => {
+            <script>
+                document.querySelectorAll(".popup__img").forEach(container => {
 
-    const img = container.querySelector("img");
+                    const img = container.querySelector("img");
 
-    let scale = 1;
-    let minScale = 1;
-    let maxScale = 5;
+                    let scale = 1;
+                    let minScale = 1;
+                    let maxScale = 5;
 
-    let posX = 0;
-    let posY = 0;
+                    let posX = 0;
+                    let posY = 0;
 
-    let isDragging = false;
-    let startX, startY;
+                    let isDragging = false;
+                    let startX, startY;
 
-    function updateTransform() {
-        img.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
-    }
+                    function updateTransform() {
+                        img.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+                    }
 
-    function resetZoom() {
-        scale = 1;
-        posX = 0;
-        posY = 0;
-        updateTransform();
-    }
+                    function resetZoom() {
+                        scale = 1;
+                        posX = 0;
+                        posY = 0;
+                        updateTransform();
+                    }
 
-    // ===== トラックパッドピンチ（ctrl + wheel）=====
-    img.addEventListener("wheel", e => {
-        if (e.ctrlKey) {
-            e.preventDefault();
+                    // ===== トラックパッドピンチ（ctrl + wheel）=====
+                    img.addEventListener("wheel", e => {
+                        if (e.ctrlKey) {
+                            e.preventDefault();
 
-            const rect = img.getBoundingClientRect();
-            const offsetX = e.clientX - rect.left;
-            const offsetY = e.clientY - rect.top;
+                            const rect = img.getBoundingClientRect();
+                            const offsetX = e.clientX - rect.left;
+                            const offsetY = e.clientY - rect.top;
 
-            const zoom = -e.deltaY * 0.01;
-            const newScale = Math.min(Math.max(minScale, scale + zoom), maxScale);
+                            const zoom = -e.deltaY * 0.01;
+                            const newScale = Math.min(Math.max(minScale, scale + zoom), maxScale);
 
-            const scaleRatio = newScale / scale;
+                            const scaleRatio = newScale / scale;
 
-            posX -= (offsetX - posX) * (scaleRatio - 1);
-            posY -= (offsetY - posY) * (scaleRatio - 1);
+                            posX -= (offsetX - posX) * (scaleRatio - 1);
+                            posY -= (offsetY - posY) * (scaleRatio - 1);
 
-            scale = newScale;
-            updateTransform();
-        }
-    }, { passive: false });
+                            scale = newScale;
+                            updateTransform();
+                        }
+                    }, { passive: false });
 
-    // ===== マウスドラッグ移動 =====
-    img.addEventListener("mousedown", e => {
-        if (scale > 1) {
-            isDragging = true;
-            startX = e.clientX - posX;
-            startY = e.clientY - posY;
-            container.style.cursor = "grabbing";
-        }
-    });
+                    // ===== マウスドラッグ移動 =====
+                    img.addEventListener("mousedown", e => {
+                        if (scale > 1) {
+                            isDragging = true;
+                            startX = e.clientX - posX;
+                            startY = e.clientY - posY;
+                            container.style.cursor = "grabbing";
+                        }
+                    });
 
-    window.addEventListener("mousemove", e => {
-        if (isDragging) {
-            posX = e.clientX - startX;
-            posY = e.clientY - startY;
-            updateTransform();
-        }
-    });
+                    window.addEventListener("mousemove", e => {
+                        if (isDragging) {
+                            posX = e.clientX - startX;
+                            posY = e.clientY - startY;
+                            updateTransform();
+                        }
+                    });
 
-    window.addEventListener("mouseup", () => {
-        isDragging = false;
-        container.style.cursor = "grab";
-    });
+                    window.addEventListener("mouseup", () => {
+                        isDragging = false;
+                        container.style.cursor = "grab";
+                    });
 
-    // ===== ダブルクリックでリセット =====
-    img.addEventListener("dblclick", resetZoom);
+                    // ===== ダブルクリックでリセット =====
+                    img.addEventListener("dblclick", resetZoom);
 
-    // ===== ポップアップ閉じたらリセット =====
-    const checkbox = container.closest(".tmb").querySelector("input[type='checkbox']");
-    checkbox.addEventListener("change", () => {
-        if (!checkbox.checked) {
-            resetZoom();
-        }
-    });
+                    // ===== ポップアップ閉じたらリセット =====
+                    const checkbox = container.closest(".tmb").querySelector("input[type='checkbox']");
+                    checkbox.addEventListener("change", () => {
+                        if (!checkbox.checked) {
+                            resetZoom();
+                        }
+                    });
 
-});
-</script>
+                });
+            </script>
         </div>
         <div class="gradation"></div>
         <div class="class-kikaku" id="classkikaku">
@@ -382,8 +382,9 @@ document.querySelectorAll(".popup__img").forEach(container => {
                 <h1 class="shousai-title">1年生クラス企画</h1>
                 <div class="Box-Container1">
                     <div class="Box1">
-                        <p class="class">体験<span class="place"></span>1年1組<br>北棟4階 1-1教室<br><span class="title"><small>Hope to
-                                chocolate<span class="place"></span>~私、この国救うので。~</small></span></p>
+                        <p class="class">体験<span class="place"></span>1年1組<br>北棟4階 1-1教室<br><span
+                                class="title"><small>Hope to
+                                    chocolate<span class="place"></span>~私、この国救うので。~</small></span></p>
                         <img class="img-class" src="./images/r07_bunka_007_1-1.png">
                         <p class="class-shousai">
                             あなたは、異世界に派遣された精鋭。<br>
@@ -409,7 +410,7 @@ document.querySelectorAll(".popup__img").forEach(container => {
                     </div>
                     <div class="Box1">
                         <p class="class">展示<span class="place"></span>1年4組<br>北棟4階 1-3教室<br><span
-                                class="title">神話協奏曲コンチェルト</span></p>
+                                class="title"><ruby>神話協奏曲<rt>ミスコンチェルト</rt></ruby></span></p>
                         <img class="img-class" src="./images/r07_bunka_010_1-4.jpg">
                         <p class="class-shousai">
                             4つの神話が1-4に今集結！！
@@ -467,8 +468,8 @@ document.querySelectorAll(".popup__img").forEach(container => {
                         </p>
                     </div>
                     <div class="Box1">
-                        <p class="class">体験<span class="place"></span>1年11組<br>中棟5階 講義室<br><span
-                                class="title">血 ~血液の循環について~</span>
+                        <p class="class">体験<span class="place"></span>1年11組<br>中棟5階 講義室<br><span class="title">血
+                                ~血液の循環について~</span>
                         </p>
                         <img class="img-class" src="./images/r07_bunka_017_1-11.jpg">
                         <p class="class-shousai">
@@ -917,16 +918,16 @@ document.querySelectorAll(".popup__img").forEach(container => {
         <div class="onegai">
             <h1>お願い</h1>
             <p>
-                ◦本校で撮影、録音した写真・動画・音声のSNS等を利用した不特定多数への発信・拡散は禁止です。
-                <br>◦校舎内での食事は禁止です。
-                <br>◦学校の敷地内は全面禁煙です。
-                <br>◦校舎内のゴミ箱は使用せず、ゴミは各自でお持ち帰りください。
-                <br>◦お帰りの際は六光賞への投票をお願いします。
-                <br>◦迷子や落とし物、その他お困りごとなどがございましたら、1Fピロティのインフォメーションセンターまでお越しください。
-                <br>◦パンフレットの譲渡及び販売は禁止です。また、パンフレットを撮影してSNS等で発信・拡散しないでください。
-                <br>◦飲食物は、バザー・食堂・売店で販売しています。
-                <br>◦エレベーターを必要とされる方は管理棟のエレベーターをご利用ください。
-                <br>◦お手洗いはピロティと教室棟各階にございます。詳しい場所につきましては会場案内図をご参照ください。
+                ◦本校で撮影、録音した写真・動画・音声のSNS等を利用した発信・拡散は禁止です。<br>
+                ◦校舎内、中庭の芝生の上での食事は禁止です。<br>
+                ◦学校の敷地内は全面禁煙です。<br>
+                ◦校舎内のゴミ箱は使用せず、ゴミは各自でお持ち帰りください。<br>
+                ◦お帰りの際は六光賞への投票をお願いします。<br>
+                ◦迷子や落とし物、その他お困りごとなどがございましたら、1Fピロティのインフォメーションセンターまでお越しください。
+                ◦パンフレットを撮影してSNS 等で発信・拡散しないでください。<br>
+                ◦飲食物は、バザー・食堂・売店で販売しています。<br>
+                ◦エレベーターを必要とされる方は管理棟のエレベーターをご利用ください。<br>
+                ◦お手洗いはピロティと教室棟各階にございます。詳しい場所につきましては会場案内図をご参照ください。
             </p>
         </div>
         <div class="space"></div>
@@ -950,6 +951,7 @@ document.querySelectorAll(".popup__img").forEach(container => {
                 <ul class="footer-nav2">
                     <li class="footer-navtext"><a href="#timeschedule">タイムスケジュール</a></li>
                     <li class="footer-navtext"><a href="sub.html#stage">ステージ</a></li>
+                    <li class="footer-navtext"><a href="sub.html#bazaar-cafeteria">食堂・バザー</a></li>
                     <li class="footer-navtext"><a href="#map">マップ</a></li>
                 </ul>
             </nav>
@@ -1037,7 +1039,7 @@ document.querySelectorAll(".popup__img").forEach(container => {
             }
 
             .site-menu li {
-                font-size: 1.4rem;
+                font-size: 1.35rem;
                 line-height: 1.3;
                 margin: 0 8px;
             }
@@ -1048,7 +1050,7 @@ document.querySelectorAll(".popup__img").forEach(container => {
 
             .site-menu ul {
                 display: flex;
-                gap: 20px;
+                gap: 15px;
             }
 
             .site-menu li a {
@@ -1141,7 +1143,7 @@ document.querySelectorAll(".popup__img").forEach(container => {
 
                 .site-menu li a {
                     font-size: 2rem;
-                    padding: 15px 0;
+                    padding: 10px 0;
                 }
             }
 
@@ -1694,8 +1696,10 @@ document.querySelectorAll(".popup__img").forEach(container => {
             .popup__img {
                 z-index: 11;
                 position: absolute;
-                top: 5%;
-                left: 5%;
+                text-align: center;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 width: 90%;
                 height: 90%;
             }
@@ -1718,17 +1722,17 @@ document.querySelectorAll(".popup__img").forEach(container => {
             }
 
             .popup__img {
-    overflow: hidden;
-    cursor: grab;
-    touch-action: none;
-}
+                overflow: hidden;
+                cursor: grab;
+                touch-action: none;
+            }
 
-.popup__img img {
-    transition: transform 0.05s ease;
-    transform-origin: center center;
-    user-select: none;
-    -webkit-user-drag: none;
-}
+            .popup__img img {
+                transition: transform 0.05s ease;
+                transform-origin: center center;
+                user-select: none;
+                -webkit-user-drag: none;
+            }
 
             .annai {
                 margin-top: -80px;
@@ -1912,16 +1916,17 @@ document.querySelectorAll(".popup__img").forEach(container => {
             }
 
             @media (min-width: 768px) {
-            .Box-Container1,
-            .Box-Container2,
-            .Box-Container3,
-            .Box-Container4,
-            .Box-Container5,
-            .Box-Container6,
-            .Box-Container7 {
-                margin-left: 30px;
-                margin-right: 30px;
-            }
+
+                .Box-Container1,
+                .Box-Container2,
+                .Box-Container3,
+                .Box-Container4,
+                .Box-Container5,
+                .Box-Container6,
+                .Box-Container7 {
+                    margin-left: 30px;
+                    margin-right: 30px;
+                }
 
             }
 
@@ -2021,7 +2026,7 @@ document.querySelectorAll(".popup__img").forEach(container => {
                 min-width: 0;
                 max-width: 330px;
                 overflow-wrap: break-word;
-                
+
             }
 
             .cultureclub-kikaku {
