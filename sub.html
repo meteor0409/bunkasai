@@ -68,67 +68,138 @@
                 <h1>タイムスケジュール</h1>
                 <div class="timeschedule-box">
                     <div class="timeschedule-picture">
-                        <p class="timeschedule-text">タイムスケジュール1日目</p>
-                        <br>
+                        <p class="timeschedule-text">タイムスケジュール1日目</p><br>
+
                         <div class="tmb">
                             <label for="pop-01">
-                                <img src="images/r07_bunka_087_timeschedule_1.png" alt="image_01" class="tmb_img">
+                                <img src="images/r07_bunka_087_timeschedule_1.png" class="tmb_img">
                             </label>
-                            <input type="checkbox" value="" id="pop-01">
+                            <input type="checkbox" id="pop-01">
                             <div class="popup">
                                 <label for="pop-01" class="popup__btn"></label>
                                 <label for="pop-01" class="popup__btnarea"></label>
                                 <div class="popup__img">
-                                    <img src="images/r07_bunka_087_timeschedule_1.png" alt="image_01">
+                                    <img src="images/r07_bunka_087_timeschedule_1.png">
                                 </div>
                             </div>
                         </div>
                         <div class="tmb">
                             <label for="pop-02">
-                                <img src="images/r07_bunka_088_timeschedule_2.png" alt="image_01" class="tmb_img">
+                                <img src="images/r07_bunka_088_timeschedule_2.png" class="tmb_img">
                             </label>
-                            <input type="checkbox" value="" id="pop-02">
+                            <input type="checkbox" id="pop-02">
                             <div class="popup">
                                 <label for="pop-02" class="popup__btn"></label>
                                 <label for="pop-02" class="popup__btnarea"></label>
                                 <div class="popup__img">
-                                    <img src="images/r07_bunka_088_timeschedule_2.png" alt="image_01">
+                                    <img src="images/r07_bunka_088_timeschedule_2.png">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="timeschedule-picture">
-                        <p class="timeschedule-text">タイムスケジュール2日目</p>
-                        <br>
+                        <p class="timeschedule-text">タイムスケジュール2日目</p><br>
+
                         <div class="tmb">
-                            <label for="pop-01">
-                                <img src="images/r07_bunka_089_timeschedule_3.png" alt="image_01" class="tmb_img">
+                            <label for="pop-03">
+                                <img src="images/r07_bunka_089_timeschedule_3.png" class="tmb_img">
                             </label>
-                            <input type="checkbox" value="" id="pop-01">
+                            <input type="checkbox" id="pop-03">
                             <div class="popup">
-                                <label for="pop-01" class="popup__btn"></label>
-                                <label for="pop-01" class="popup__btnarea"></label>
+                                <label for="pop-03" class="popup__btn"></label>
+                                <label for="pop-03" class="popup__btnarea"></label>
                                 <div class="popup__img">
-                                    <img src="images/r07_bunka_089_timeschedule_3.png" alt="image_01">
+                                    <img src="images/r07_bunka_089_timeschedule_3.png">
                                 </div>
                             </div>
                         </div>
                         <div class="tmb">
-                            <label for="pop-02">
-                                <img src="images/r07_bunka_090_timeschedule_4.png" alt="image_01" class="tmb_img">
+                            <label for="pop-04">
+                                <img src="images/r07_bunka_090_timeschedule_4.png" class="tmb_img">
                             </label>
-                            <input type="checkbox" value="" id="pop-02">
+                            <input type="checkbox" id="pop-04">
                             <div class="popup">
-                                <label for="pop-02" class="popup__btn"></label>
-                                <label for="pop-02" class="popup__btnarea"></label>
+                                <label for="pop-04" class="popup__btn"></label>
+                                <label for="pop-04" class="popup__btnarea"></label>
                                 <div class="popup__img">
-                                    <img src="images/r07_bunka_090_timeschedule_4.png" alt="image_01">
+                                    <img src="images/r07_bunka_090_timeschedule_4.png">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <script>
+                document.querySelectorAll(".popup__img").forEach(container => {
+
+                    const img = container.querySelector("img");
+
+                    let scale = 1;
+                    const minScale = 1;
+                    const maxScale = 5;
+
+                    let posX = 0;
+                    let posY = 0;
+
+                    let isDragging = false;
+                    let startX, startY;
+
+                    function updateTransform() {
+                        img.style.transform =
+                            `translate(${posX}px, ${posY}px) scale(${scale})`;
+                    }
+
+                    function resetZoom() {
+                        scale = 1;
+                        posX = 0;
+                        posY = 0;
+                        updateTransform();
+                    }
+
+                    img.addEventListener("wheel", e => {
+                        if (e.ctrlKey) {
+                            e.preventDefault();
+
+                            const zoom = -e.deltaY * 0.01;
+                            scale = Math.min(Math.max(minScale, scale + zoom), maxScale);
+                            updateTransform();
+                        }
+                    }, { passive: false });
+
+                    img.addEventListener("mousedown", e => {
+                        if (scale > 1) {
+                            isDragging = true;
+                            startX = e.clientX - posX;
+                            startY = e.clientY - posY;
+                        }
+                    });
+
+                    window.addEventListener("mousemove", e => {
+                        if (isDragging) {
+                            posX = e.clientX - startX;
+                            posY = e.clientY - startY;
+                            updateTransform();
+                        }
+                    });
+
+                    window.addEventListener("mouseup", () => {
+                        isDragging = false;
+                    });
+
+                    img.addEventListener("dblclick", resetZoom);
+
+                    const checkbox =
+                        container.closest(".tmb")
+                            .querySelector("input[type='checkbox']");
+
+                    checkbox.addEventListener("change", () => {
+                        if (!checkbox.checked) {
+                            resetZoom();
+                        }
+                    });
+
+                });
+            </script>
         </div>
         <div class="gradation"></div>
         <div class="stage" id="stage">
@@ -212,10 +283,11 @@
                         <p>
                             [注意]<br>
                             ◦撮影･録音した写真・動画・音声などをSNSなどで発信・拡散などをすることは禁止です。<br>
-                            ◦場内は土足厳禁です。靴袋をご持参ください。<br>
-                            ◦公演は係の指示に従ってお楽しみください。公演はやむを得ず中止する場合がございます。<br>
-                            ◦場内での飲食は禁止です。<br>
-                            ◦公演中は大きな音や光を出さないようお願いします。<br>
+                            ◦公演は係の指示に従ってお楽しみください。<br>
+                            公演はやむを得ず中止する場合がございます。<br>
+                            ◦１階（ピロティを含む）での撮影・録音機器の使用は禁止です。<br>
+                            ◦規制区域への立ち入りは禁止です。<br>
+                            ◦中庭の芝生の上は飲食禁止です。
                         </p>
                     </div>
                     <div class="Box">
@@ -444,10 +516,11 @@
                         <p>
                             [注意]<br>
                             ◦撮影･録音した写真・動画・音声などをSNSなどで発信・拡散などをすることは禁止です。<br>
-                            ◦場内は土足厳禁です。靴袋をご持参ください。<br>
-                            ◦公演は係の指示に従ってお楽しみください。公演はやむを得ず中止する場合がございます。<br>
-                            ◦場内での飲食は禁止です。<br>
-                            ◦公演中は大きな音や光を出さないようお願いします。
+                            ◦公演は係の指示に従ってお楽しみください。<br>
+                            公演はやむを得ず中止する場合がございます。<br>
+                            ◦１階（ピロティを含む）での撮影・録音機器の使用は禁止です。<br>
+                            ◦規制区域への立ち入りは禁止です。<br>
+                            ◦中庭の芝生の上は飲食禁止です。
                         </p>
                     </div>
                     <div class="Box">
@@ -1287,7 +1360,7 @@
                 height: auto;
                 margin: auto;
                 border: 1.5px solid #212529;
-                padding: 30px 30px 30px 30px;
+                padding: 30px;
                 border-radius: 10px;
             }
 
@@ -1304,11 +1377,10 @@
             .tmb_img {
                 width: 100%;
                 height: auto;
-            }
-
-            .tmb_img:hover {
                 cursor: pointer;
             }
+
+            /* ===== ポップアップ ===== */
 
             .popup {
                 z-index: 10;
@@ -1317,32 +1389,62 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                transform: scale(0);
                 background-color: rgba(0, 0, 0, 0.8);
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
                 opacity: 0;
-                transition: opacity 0.3s, transform 0s 0.3s;
+                pointer-events: none;
+                transition: opacity 0.3s;
             }
 
+            input[type="checkbox"] {
+                display: none;
+            }
+
+            input[type="checkbox"]:checked~.popup {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            /* 画像はクリック前と完全に同じ指定 */
+            .popup__img {
+                width: 75%;
+                max-width: 1000px;
+                padding-top: 80px;
+            }
+
+            .popup__img img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                transition: transform 0.05s ease;
+                transform-origin: center center;
+                user-select: none;
+                -webkit-user-drag: none;
+            }
+
+            /* 閉じるボタン */
+
             .popup__btn {
-                display: block;
-                z-index: 13;
                 position: absolute;
-                top: 1vh;
-                right: 1vh;
-                width: 5vh;
-                height: 5vh;
+                top: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
                 cursor: pointer;
             }
 
             .popup__btn::before,
             .popup__btn::after {
+                content: '';
                 position: absolute;
                 top: 50%;
                 width: 100%;
                 height: 2px;
-                margin-top: -1px;
-                background-color: #fff;
-                content: '';
+                background: #fff;
             }
 
             .popup__btn::before {
@@ -1354,54 +1456,13 @@
             }
 
             .popup__btnarea {
-                z-index: 12;
                 position: absolute;
-                top: 0;
-                left: 0;
                 width: 100%;
                 height: 100%;
+                top: 0;
+                left: 0;
             }
 
-            .popup__img {
-                z-index: 11;
-                position: absolute;
-                text-align: center;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 90%;
-                height: 90%;
-            }
-
-            .popup__img img {
-                width: 101-80%;
-                height: 100%;
-                object-fit: contain;
-                padding-top: 110px;
-            }
-
-            input[type="checkbox"] {
-                display: none;
-            }
-
-            input[type="checkbox"]:checked~.popup {
-                transform: scale(1);
-                opacity: 1;
-                transition: opacity 0.3s;
-            }
-
-            .popup__img {
-                overflow: hidden;
-                cursor: grab;
-                touch-action: none;
-            }
-
-            .popup__img img {
-                transition: transform 0.05s ease;
-                transform-origin: center center;
-                user-select: none;
-                -webkit-user-drag: none;
-            }
 
             .gradation {
                 height: 80px;
